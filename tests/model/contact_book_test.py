@@ -69,3 +69,32 @@ def test_find_contact_non_existing() -> None:
     result = contact_book.find(non_existent_name)
 
     assert result is None
+
+
+def test_delete_existing_contact():
+    """
+    Test that delete successfully removes and returns a Contact object
+    if the contact's name exists in the ContactBook.
+    """
+    contact_book = ContactBook()
+    contact_name = Name("John")
+    contact = Contact(contact_name)
+    contact_book.add_contact(contact)
+
+    deleted_contact = contact_book.delete(contact_name)
+
+    assert deleted_contact == contact
+    assert contact_name not in contact_book.data
+
+
+def test_delete_non_existing_contact():
+    """
+    Test that delete returns None if the contact's name does not exist
+    in the ContactBook.
+    """
+    contact_book = ContactBook()
+    contact_name = Name("NonExisting")
+
+    deleted_contact = contact_book.delete(contact_name)
+
+    assert deleted_contact is None

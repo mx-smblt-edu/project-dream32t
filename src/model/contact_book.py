@@ -25,9 +25,6 @@ class ContactBook(UserDict[Name, Contact]):
         if name not in self.data:
             self.data[name] = contact
 
-    def __str__(self) -> str:
-        return "ContactBook\n" + '\n'.join([f'{record}' for record in self.data.values()])
-
     def find(self, name: Name) -> Contact | None:
         """
         Searches for a contact by its name in the data mapping.
@@ -40,3 +37,17 @@ class ContactBook(UserDict[Name, Contact]):
         :return: The associated contact if found, otherwise `None`.
         """
         return self.data.get(name, None)
+
+    def delete(self, name: Name) -> Contact | None:
+        """
+        Deletes a contact from the internal data storage by its name. If the contact
+        with the given name exists, it will be removed and returned. Otherwise,
+        returns None.
+
+        :param name: The name of the contact to be deleted.
+        :returns: The deleted contact if it existed; otherwise, None.
+        """
+        return self.data.pop(name, None)
+
+    def __str__(self) -> str:
+        return "ContactBook\n" + '\n'.join([f'{record}' for record in self.data.values()])
