@@ -38,5 +38,5 @@ class Birthday:
 
     def __eq__(self, other) -> bool:
         if type(self) != type(other):
-            raise TypeError("Cannot compare %r and %r" % (self, other))
-        return self.__value == other.__value
+            raise TypeError(f"Cannot compare {self!r} and {other!r}")
+        return self.value == other.value
