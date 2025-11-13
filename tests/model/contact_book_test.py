@@ -98,3 +98,68 @@ def test_delete_non_existing_contact():
     deleted_contact = contact_book.delete(contact_name)
 
     assert deleted_contact is None
+
+
+def test_find_by_name_single_result():
+    """
+    Tests that find_by_name returns a single contact when the name matches exactly.
+    """
+    book = ContactBook()
+    name = Name("John Doe")
+    contact = Contact(name)
+    book.add_contact(contact)
+
+    result = book.find_by_name("John")
+    assert result == [contact]
+
+
+def test_find_by_name_multiple_results():
+    """
+    Tests that find_by_name returns multiple contacts when the name substring matches multiple.
+    """
+    book = ContactBook()
+    contact1 = Contact(Name("John Smith"))
+    contact2 = Contact(Name("Johnny Depp"))
+    book.add_contact(contact1)
+    book.add_contact(contact2)
+
+    result = book.find_by_name("John")
+    assert result == [contact1, contact2]
+
+
+def test_find_by_name_no_matches():
+    """
+    Tests that find_by_name returns None when no contacts match the name substring.
+    """
+    book = ContactBook()
+    contact = Contact(Name("Alice Wonderland"))
+    book.add_contact(contact)
+
+    result = book.find_by_name("John")
+    assert result is None
+
+
+def test_find_by_name_case_insensitivity():
+    """
+    Tests that find_by_name is case-insensitive when searching for name substrings.
+    """
+    book = ContactBook()
+    contact = Contact(Name("John Doe"))
+    book.add_contact(contact)
+
+    result = book.find_by_name("john")
+    assert result == [contact]
+
+
+def test_find_by_name_empty_substring():
+    """
+    Tests that find_by_name returns all contacts when an empty substring is provided.
+    """
+    book = ContactBook()
+    contact1 = Contact(Name("John Smith"))
+    contact2 = Contact(Name("Jane Doe"))
+    book.add_contact(contact1)
+    book.add_contact(contact2)
+
+    result = book.find_by_name("")
+    assert result == [contact1, contact2]

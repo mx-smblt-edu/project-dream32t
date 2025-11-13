@@ -38,6 +38,26 @@ class ContactBook(UserDict[Name, Contact]):
         """
         return self.data.get(name, None)
 
+    def find_by_name(self, name: str) -> list[Contact] | None:
+        """
+        Searches for contacts by a specified name substring.
+
+        This method looks for all contacts where the given name substring
+        is found (case-insensitive) in the contact's name. If no matching contacts
+        are found, it returns None.
+
+        :param name: The name substring to search for.
+        :return: None
+        """
+        sub_string = name.casefold()
+        contacts = [
+            contact for contact in self.data.values()
+            if sub_string in contact.name.value.casefold()
+        ]
+        if len(contacts) == 0:
+            return None
+        return contacts
+
     def delete(self, name: Name) -> Contact | None:
         """
         Deletes a contact from the internal data storage by its name. If the contact
