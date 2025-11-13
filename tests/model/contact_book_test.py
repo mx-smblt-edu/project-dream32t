@@ -41,3 +41,31 @@ def test_add_contact_does_not_add_duplicate_contact():
     assert len(contact_book.data) == 1
     assert contact_name in contact_book.data
     assert contact_book.data[contact_name] == contact
+
+
+def test_find_contact_existing() -> None:
+    """
+    Test that the `find` method returns the correct Contact object
+    when the corresponding Name exists in the ContactBook.
+    """
+    contact_book = ContactBook()
+    contact_name = Name("John")
+    contact = Contact(contact_name)
+
+    contact_book.add_contact(contact)
+    result = contact_book.find(contact_name)
+
+    assert result == contact
+
+
+def test_find_contact_non_existing() -> None:
+    """
+    Test that the `find` method returns None when the Name does not exist
+    in the ContactBook.
+    """
+    contact_book = ContactBook()
+    non_existent_name = Name("John")
+
+    result = contact_book.find(non_existent_name)
+
+    assert result is None

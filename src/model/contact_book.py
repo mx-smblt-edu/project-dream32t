@@ -27,3 +27,16 @@ class ContactBook(UserDict[Name, Contact]):
 
     def __str__(self) -> str:
         return "ContactBook\n" + '\n'.join([f'{record}' for record in self.data.values()])
+
+    def find(self, name: Name) -> Contact | None:
+        """
+        Searches for a contact by its name in the data mapping.
+
+        This method attempts to retrieve a contact from the internal data mapping.
+        If the name exists in the mapping, the corresponding contact is returned.
+        If the name does not exist, `None` is returned.
+
+        :param name: The name of the contact to search for.
+        :return: The associated contact if found, otherwise `None`.
+        """
+        return self.data.get(name, None)
