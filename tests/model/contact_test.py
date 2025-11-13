@@ -63,3 +63,46 @@ def test_add_multiple_unique_phone_numbers():
     assert result2 == phone2
     assert len(contact._Contact__phones.data) == 2
     assert contact._Contact__phones.data == [phone1, phone2]
+
+
+def test_remove_phone_successful():
+    """
+    Test that remove_phone successfully removes an existing phone from the contact.
+    """
+    name = Name("John")
+    contact = Contact(name)
+    phone = Phone("1234567890")
+    contact.add_phone(phone)
+
+    removed_phone = contact.remove_phone(phone)
+
+    assert removed_phone == phone
+    assert len(contact._Contact__phones.data) == 0
+
+
+def test_remove_nonexistent_phone():
+    """
+    Test that remove_phone returns None when trying to remove a phone that does not exist.
+    """
+    name = Name("John")
+    contact = Contact(name)
+    phone1 = Phone("1234567890")
+    phone2 = Phone("0987654321")
+
+    contact.add_phone(phone1)
+    removed_phone = contact.remove_phone(phone2)
+
+    assert removed_phone is None
+
+
+def test_remove_phone_from_empty_list():
+    """
+    Test that remove_phone returns None when the contact has no phone numbers.
+    """
+    name = Name("John")
+    contact = Contact(name)
+    phone = Phone("1234567890")
+
+    removed_phone = contact.remove_phone(phone)
+
+    assert removed_phone is None

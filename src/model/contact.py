@@ -28,6 +28,20 @@ class Contact:
         """
         return self.__phones.add(phone)
 
+    def remove_phone(self, phone: Phone) -> Phone | None:
+        """
+        Removes a phone number from the stored phone list, if it exists.
+
+        Searches for the specified phone number in the list of stored phones. If the
+        phone number is found, it is removed from the list and returned. If the phone
+        number is not found, no operation is performed, and None is returned.
+
+        :param phone: The phone number to be removed.
+        :return: The removed phone instance if the phone number exists, otherwise None.
+        """
+
+        return self.__phones.remove(phone)
+
     def __str__(self):
         """Returns a string representation of the contact."""
         result = f"Contact name: {self.name}"
