@@ -31,6 +31,22 @@ class Phones(UserList[Phone]):
 
         return None
 
+    def remove(self, phone: Phone) -> Phone | None:
+        """
+        Removes a phone number from the stored phone list, if it exists.
+
+        Searches for the specified phone number in the list of stored phones. If the
+        phone number is found, it is removed from the list and returned. If the phone
+        number is not found, no operation is performed, and None is returned.
+
+        :param phone: The phone number to be removed.
+        :return: The removed phone instance if the phone number exists, otherwise None.
+        """
+        index_phone_number = self.__index_phone_number(phone)
+        if index_phone_number is None:
+            return None
+        return self.data.pop(index_phone_number)
+
     def __index_phone_number(self, phone: Phone) -> int | None:
         """
         Searches for the index of a phone number in the list of stored phone numbers.
