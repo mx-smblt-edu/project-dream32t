@@ -19,6 +19,7 @@ def test_contact_initialization():
     contact = Contact(name)
     assert contact.name == name
     assert len(contact._Contact__phones) == 0
+    assert len(contact._Contact__emails) == 0
 
 
 def test_add_unique_phone_number():

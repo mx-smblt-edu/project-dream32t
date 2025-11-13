@@ -1,6 +1,7 @@
 """
 Provides the Contact class.
 """
+from src.model.emails import Emails
 from src.model.name import Name
 from src.model.phone import Phone
 from src.model.phone_number_search_template import PhoneNumberSearchTemplate
@@ -13,6 +14,7 @@ class Contact:
     def __init__(self, name: Name):
         self.__name = name
         self.__phones = Phones()
+        self.__emails = Emails()
 
     @property
     def name(self) -> Name:
