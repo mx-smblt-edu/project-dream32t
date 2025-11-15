@@ -105,8 +105,7 @@ class Phones(UserList[Phone]):
                 return index
         return None
 
-
-def __str__(self):
-    if len(self.data) == 0:
-        return ""
-    return f"phones: {'; '.join([f'{phone}' for phone in self.data])}"
+    def __str__(self):
+        if len(self.data) == 0:
+            return ""
+        return f"phones: {'; '.join([f'{phone}' for phone in self.data])}"
