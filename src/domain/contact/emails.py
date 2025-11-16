@@ -1,88 +1,79 @@
 """
-A collection class for storing phone numbers.
+A collection class for storing email addresses.
 
-This module provides the `Phones` class, which is a custom implementation
-inheriting from the `UserList` collection that holds instances of the `Phone`
+This module provides the `Emails` class, which is a custom implementation
+inheriting from the `UserList` collection that holds instances of the `Email`
 class.
 """
 
 from collections import UserList
 
 from src.domain.contact.email import Email
-from src.error.already_phone_number_error import AlreadyPhoneNumberError
-from src.error.unknown_phone_number_error import UnknownPhoneNumberError
+from src.error.already_email_error import AlreadyEmailError
+from src.error.unknown_email_error import UnknownEmailError
 
 
 class Emails(UserList[Email]):
-    """A class for storing phone numbers."""
+    """A class for storing email addresses."""
 
     def __init__(self):
         self.data = []
+        super().__init__()
 
-    def add(self, email: Email) -> Email | None:
+    def add(self, email: Email) -> bool:
         """
-        Adds a email to the list if it is not already present.
+        Adds an email object to the internal data list if it does not already
+        exist.
 
-        :param email: The email to be added.
-        :return: A new Phone object if the email is successfully added,
-            or None if the email is already present in the list.
+        This method checks if the provided email object is already indexed in
+        the internal storage. If not, the email is appended to the data list.
         """
-        index_phone_number = self.__index_phone_number(email)
-        if index_phone_number is None:
+        index_email = self.__index_email(email)
+        if index_email is None:
             self.data.append(email)
-            return email
+            return True
 
-        return None
+        return False
 
-    def remove(self, email: Email) -> Email | None:
+    def remove(self, email: Email) -> None:
         """
-        Removes a email from the stored phone list, if it exists.
+        Removes an email from the data.
 
-        Searches for the specified email in the list of stored phones. If the
-        email is found, it is removed from the list and returned. If the phone
-        number is not found, no operation is performed, and None is returned.
-
-        :param email: The email to be removed.
-        :return: The removed phone instance if the email exists, otherwise None.
+        This method removes the specified email from the collection of data. If the
+        email is not found in the collection, an exception is raised.
         """
-        index_phone_number = self.__index_phone_number(email)
-        if index_phone_number is None:
-            return None
-        return self.data.pop(index_phone_number)
+        index_email = self.__index_email(email)
+        if index_email is None:
+            raise UnknownEmailError(email.value)
 
-    def replace(self, old_email: Email, new_email: Email) -> Email:
+        self.data.pop(index_email)
+
+    def replace(self, old_email: Email, new_email: Email) -> None:
         """
-        Replace an existing email in the phone list. Replaces the old email
-        with a new one if the old number exists and the new number is not already in use.
+        Replaces an existing email with a new one in the email collection.
 
-        :param old_email: The email currently stored in the list that
-            needs to be replaced.
-        :param new_email: The new email to replace the old one. Must not
-            already exist in the list.
-        :return: The newly created Phone object representing the new email.
-        :raises UnknownPhoneNumberError: If the old email is not found in the list.
-        :raises ValueError: If the new email is already in the list.
+        Searches for the given old email within the collection. If found,
+        replaces it with the new email while ensuring no duplicate entries
+        exist. Raises an error if the old email is not found or if the
+        new email already exists in the collection.
         """
-        index_old_phone_number = self.__index_phone_number(old_email)
-        if index_old_phone_number is None:
-            raise UnknownPhoneNumberError(old_email.value)
+        index_old_email = self.__index_email(old_email)
+        if index_old_email is None:
+            raise UnknownEmailError(old_email.value)
 
-        if self.__index_phone_number(new_email) is not None:
-            raise AlreadyPhoneNumberError(new_email.value)
+        if self.__index_email(new_email) is not None:
+            raise AlreadyEmailError(new_email.value)
 
-        self.data[index_old_phone_number] = new_email
-        return new_email
+        self.data[index_old_email] = new_email
 
-    def __index_phone_number(self, email: Email) -> int | None:
+    def __index_email(self, email: Email) -> int | None:
         """
-        Searches for the index of a email in the list of stored phone numbers.
+        Searches for an email object in the data collection and returns its index if found.
 
-        This method iterates through the list of phone numbers and checks if any of the
-        numbers matches the provided email. If a match is found, the index of the
-        email in the list is returned. If no match is found, the method returns None.
-
-        :param email: The email to search for in the list.
-        :return: The index of the email if found, or None if no match is found.
+        This method iterates through the collection of email objects stored in the `data`
+        attribute to identify if a given email object exists in the collection. If the
+        email object matches an item in the collection, it returns the index of the first
+        occurrence. Otherwise, it returns None.
         """
         for index, item in enumerate(self.data):
             if item == email:
@@ -92,4 +83,4 @@ class Emails(UserList[Email]):
     def __str__(self):
         if len(self.data) == 0:
             return ""
-        return f"emails: {'; '.join([f'{phone}' for phone in self.data])}"
+        return f"Emails: [{', '.join([f'{email.value}' for email in self.data])}]"
