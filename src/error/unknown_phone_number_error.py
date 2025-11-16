@@ -3,7 +3,7 @@ Defines a custom exception class for handling unknown phone numbers.
 """
 
 
-class UnknownPhoneNumberError(Exception):
+class UnknownPhoneNumberError(ValueError):
     """
     Exception raised for referencing an unknown phone number.
     """

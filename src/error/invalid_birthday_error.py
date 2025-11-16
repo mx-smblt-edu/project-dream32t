@@ -7,7 +7,7 @@ the user to use the correct `DD.MM.YYYY` format.
 """
 
 
-class InvalidBirthdayError(Exception):
+class InvalidBirthdayError(ValueError):
     """
     Exception raised for invalid birthday date format.
 

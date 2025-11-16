@@ -3,7 +3,7 @@ Defines a custom exception for handling cases where a phone number already exist
 """
 
 
-class AlreadyPhoneNumberError(Exception):
+class AlreadyPhoneNumberError(ValueError):
     """
     Custom exception to indicate that a phone number already exists in the phone list.
     """

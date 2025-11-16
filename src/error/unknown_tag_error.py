@@ -3,7 +3,7 @@ Defines a custom exception class for handling unknown tag.
 """
 
 
-class UnknownTagError(Exception):
+class UnknownTagError(ValueError):
     """
     Exception raised for referencing an unknown tag.
     """

@@ -7,7 +7,7 @@ It provides a detailed error message highlighting the invalid input.
 """
 
 
-class InvalidNameError(Exception):
+class InvalidNameError(ValueError):
     """
     Represents an error raised when an invalid name is provided.
 
