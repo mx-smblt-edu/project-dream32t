@@ -1,7 +1,7 @@
 """
 Provides the Contact class.
 """
-
+from src.domain.contact.birthday import Birthday
 from src.domain.contact.emails import Emails
 from src.domain.contact.name import Name
 from src.domain.contact.phones import Phones
@@ -14,6 +14,7 @@ class Contact:
         self.__name = name
         self.__phones = Phones()
         self.__emails = Emails()
+        self.__birthday: Birthday | None = None
 
     @property
     def name(self) -> Name:
@@ -29,6 +30,19 @@ class Contact:
     def emails(self) -> Emails:
         """Getter for the emails"""
         return self.__emails
+
+    @property
+    def birthday(self) -> Birthday | None:
+        """Getter for the birthday"""
+        return self.__birthday
+
+    def add_birthday(self, birthday: Birthday) -> None:
+        """Adds a birthday to the contact."""
+        self.__birthday = birthday
+
+    def delete_birthday(self) -> None:
+        """Deletes the birthday from the contact."""
+        self.__birthday = None
 
     def __str__(self):
         """Returns a string representation of the contact."""
