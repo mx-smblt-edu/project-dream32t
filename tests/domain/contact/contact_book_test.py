@@ -19,7 +19,7 @@ def test_add_contact_adds_new_contact():
     contact_name = Name("John")
     new_contact = Contact(contact_name)
 
-    contact_book.add_contact(new_contact)
+    contact_book.add(new_contact)
 
     assert contact_name in contact_book.data
     assert contact_book.data[contact_name] == new_contact
@@ -35,11 +35,11 @@ def test_add_contact_does_not_add_duplicate_contact():
     contact = Contact(contact_name)
 
     # Add a contact
-    contact_book.add_contact(contact)
+    contact_book.add(contact)
 
     # Try adding a duplicate contact
     duplicate_contact = Contact(contact_name)
-    contact_book.add_contact(duplicate_contact)
+    contact_book.add(duplicate_contact)
 
     # The duplicate should not be added
     assert len(contact_book.data) == 1
@@ -56,7 +56,7 @@ def test_find_contact_existing() -> None:
     contact_name = Name("John")
     contact = Contact(contact_name)
 
-    contact_book.add_contact(contact)
+    contact_book.add(contact)
     result = contact_book.find(contact_name)
 
     assert result == contact
@@ -83,7 +83,7 @@ def test_delete_existing_contact():
     contact_book = ContactBook()
     contact_name = Name("John")
     contact = Contact(contact_name)
-    contact_book.add_contact(contact)
+    contact_book.add(contact)
 
     deleted_contact = contact_book.delete(contact_name)
 
@@ -111,7 +111,7 @@ def test_find_by_name_single_result():
     book = ContactBook()
     name = Name("John Doe")
     contact = Contact(name)
-    book.add_contact(contact)
+    book.add(contact)
     template = NameSearchTemplate("John")
 
     result = book.find_by_name(template)
@@ -126,8 +126,8 @@ def test_find_by_name_multiple_results():
     book = ContactBook()
     contact1 = Contact(Name("John Smith"))
     contact2 = Contact(Name("Johnny Depp"))
-    book.add_contact(contact1)
-    book.add_contact(contact2)
+    book.add(contact1)
+    book.add(contact2)
     template = NameSearchTemplate("John")
 
     result = book.find_by_name(template)
@@ -141,7 +141,7 @@ def test_find_by_name_no_matches():
     """
     book = ContactBook()
     contact = Contact(Name("Alice Wonderland"))
-    book.add_contact(contact)
+    book.add(contact)
     template = NameSearchTemplate("John")
 
     result = book.find_by_name(template)
@@ -155,7 +155,7 @@ def test_find_by_name_case_insensitivity():
     """
     book = ContactBook()
     contact = Contact(Name("John Doe"))
-    book.add_contact(contact)
+    book.add(contact)
 
     template = NameSearchTemplate("john")
 
@@ -174,10 +174,10 @@ def test_find_by_phone_existing_number():
     phone1 = Phone("1234567890")
     phone2 = Phone("9876543210")
 
-    contact1.add_phone(phone1)
-    contact2.add_phone(phone2)
-    book.add_contact(contact1)
-    book.add_contact(contact2)
+    contact1.phones.add(phone1)
+    contact2.phones.add(phone2)
+    book.add(contact1)
+    book.add(contact2)
 
     template = PhoneNumberSearchTemplate("123")
 
@@ -193,18 +193,18 @@ def test_find_by_phone_multiple_matches():
     book = ContactBook()
     contact1 = Contact(Name("John"))
     phone1 = Phone("1234567890")
-    contact1.add_phone(phone1)
-    book.add_contact(contact1)
+    contact1.phones.add(phone1)
+    book.add(contact1)
 
     contact2 = Contact(Name("Alice"))
     phone2 = Phone("1230987650")
-    contact2.add_phone(phone2)
-    book.add_contact(contact2)
+    contact2.phones.add(phone2)
+    book.add(contact2)
 
     contact3 = Contact(Name("Mike"))
     phone3 = Phone("4561237890")
-    contact3.add_phone(phone3)
-    book.add_contact(contact3)
+    contact3.phones.add(phone3)
+    book.add(contact3)
 
     template = PhoneNumberSearchTemplate("123")
 
@@ -221,12 +221,12 @@ def test_find_by_phone_no_matches():
     contact1 = Contact(Name("John"))
     contact2 = Contact(Name("Alice"))
     phone1 = Phone("1234567890")
-    contact1.add_phone(phone1)
-    book.add_contact(contact1)
+    contact1.phones.add(phone1)
+    book.add(contact1)
 
     phone2 = Phone("9876543210")
-    contact2.add_phone(phone2)
-    book.add_contact(contact2)
+    contact2.phones.add(phone2)
+    book.add(contact2)
 
     template = PhoneNumberSearchTemplate("555")
 

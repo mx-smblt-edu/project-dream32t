@@ -9,9 +9,9 @@ from src.domain.note.topic import Topic
 class Notes(UserList[Note]):
     """A class for storing notes."""
 
-    def append(self, note: Note) -> Note | None:
+    def add(self, note: Note) -> Note | None:
         """
-        Appends a note to the data storage if it does not already exist by topic.
+        Adds a note to the data storage if it does not already exist by topic.
 
         If a note with the same topic already exists in the storage, the method does
         not append the note and returns None. Otherwise, it appends the note and

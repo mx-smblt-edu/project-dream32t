@@ -78,7 +78,7 @@ def test_hash_function(topic, content, tags, expected_hash: int) -> None:
     if len(tags) > 0:
         tags_instance = Tags()
         tag_instance = Tag(tags)
-        tags_instance.append(tag_instance)
+        tags_instance.add(tag_instance)
         note_instance = Note(topic_instance, content_instance, tags_instance)
     else:
         note_instance = Note(topic_instance, content_instance)
