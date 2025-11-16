@@ -3,7 +3,7 @@ Defines a custom exception for handling cases where a tag already exists in the 
 """
 
 
-class AlreadyTagError(Exception):
+class AlreadyTagError(ValueError):
     """
     Custom exception to indicate that a tag already exists in the tag list.
     """

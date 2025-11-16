@@ -6,7 +6,7 @@ template does not meet the expected format or requirements.
 """
 
 
-class InvalidNameSearchTemplateError(Exception):
+class InvalidNameSearchTemplateError(ValueError):
     """
     Represents an error raised for invalid name search templates.
 

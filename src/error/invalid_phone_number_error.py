@@ -7,7 +7,7 @@ a provided phone number string is invalid.
 """
 
 
-class InvalidPhoneNumberError(Exception):
+class InvalidPhoneNumberError(ValueError):
     """
     Exception raised for invalid phone numbers.
 

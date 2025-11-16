@@ -6,7 +6,7 @@ template does not meet the expected format or requirements.
 """
 
 
-class InvalidTagSearchTemplateError(Exception):
+class InvalidTagSearchTemplateError(ValueError):
     """
     Represents an error raised for an invalid tag search template.
 

@@ -6,7 +6,7 @@ template does not meet the expected format or requirements.
 """
 
 
-class InvalidPhoneNumberSearchTemplateError(Exception):
+class InvalidPhoneNumberSearchTemplateError(ValueError):
     """
     Represents an error raised for an invalid phone number search template.
 

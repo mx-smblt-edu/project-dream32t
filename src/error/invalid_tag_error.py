@@ -7,7 +7,7 @@ It provides a detailed error message highlighting the invalid input.
 """
 
 
-class InvalidTagError(Exception):
+class InvalidTagError(ValueError):
     """
     Represents an error raised when an invalid tag is provided.
 

@@ -107,4 +107,4 @@ class Tags(UserList[Tag]):
     def __str__(self):
         if len(self.data) == 0:
             return ""
-        return f"tags: {'; '.join([f'{tag}' for tag in self.data])}"
+        return f"Tags: [{'; '.join([f'{tag}' for tag in self.data])}]"

@@ -7,7 +7,7 @@ It provides a detailed error message highlighting the invalid input.
 """
 
 
-class InvalidEmailError(Exception):
+class InvalidEmailError(ValueError):
     """
     Represents an error raised when an invalid email is provided.
 
