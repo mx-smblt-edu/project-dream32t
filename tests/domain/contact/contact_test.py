@@ -1,14 +1,15 @@
 """
 Unit tests for the Contact class.
 """
+
 import pytest
 
+from src.domain.contact.contact import Contact
+from src.domain.contact.name import Name
+from src.domain.contact.phone import Phone
+from src.domain.contact.phone_number_search_template import PhoneNumberSearchTemplate
 from src.error.already_phone_number_error import AlreadyPhoneNumberError
 from src.error.unknown_phone_number_error import UnknownPhoneNumberError
-from src.model.contact import Contact
-from src.model.name import Name
-from src.model.phone import Phone
-from src.model.phone_number_search_template import PhoneNumberSearchTemplate
 
 
 def test_contact_initialization():

@@ -1,5 +1,5 @@
 """
-Unit tests for the `Phone` model in the application.
+Unit tests for the `Phone` domain in the application.
 
 These tests validate the behavior of the `Phone` class when provided with
 both valid and invalid phone numbers. The tests ensure that valid phone
@@ -9,9 +9,10 @@ numbers raise the appropriate exception.
 The test cases are parameterized to allow testing multiple inputs for both
 valid and invalid scenarios.
 """
+
 import pytest
 
-from src.model.phone import Phone
+from src.domain.contact.phone import Phone
 from src.error.invalid_phone_number_error import InvalidPhoneNumberError
 
 

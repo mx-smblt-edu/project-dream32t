@@ -7,10 +7,10 @@ class.
 """
 from collections import UserList
 
+from src.domain.contact.phone import Phone
+from src.domain.contact.phone_number_search_template import PhoneNumberSearchTemplate
 from src.error.already_phone_number_error import AlreadyPhoneNumberError
 from src.error.unknown_phone_number_error import UnknownPhoneNumberError
-from src.model.phone import Phone
-from src.model.phone_number_search_template import PhoneNumberSearchTemplate
 
 
 class Phones(UserList[Phone]):

@@ -2,13 +2,14 @@
 Unit tests for validating the behavior of adding and removing tags
 in the `Tags` collection.
 """
+
 import pytest
 
+from src.domain.note.tag import Tag
+from src.domain.note.tag_search_template import TagSearchTemplate
+from src.domain.note.tags import Tags
 from src.error.already_tag_error import AlreadyTagError
 from src.error.unknown_tag_error import UnknownTagError
-from src.model.tag import Tag
-from src.model.tag_search_template import TagSearchTemplate
-from src.model.tags import Tags
 
 
 def test_add_non_existing_tag() -> None:

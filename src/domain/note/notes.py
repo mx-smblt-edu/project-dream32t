@@ -1,8 +1,9 @@
 """A class for storing notes."""
+
 from collections import UserList
 
-from src.model.note import Note
-from src.model.topic import Topic
+from src.domain.note.note import Note
+from src.domain.note.topic import Topic
 
 
 class Notes(UserList[Note]):

@@ -1,4 +1,5 @@
 """Module for name search template class."""
+
 from src.error.invalid_name_search_template_error import InvalidNameSearchTemplateError
 
 

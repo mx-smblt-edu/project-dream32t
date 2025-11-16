@@ -12,8 +12,8 @@ from datetime import datetime
 
 import pytest
 
+from src.domain.contact.birthday import Birthday
 from src.error.invalid_birthday_error import InvalidBirthdayError
-from src.model.birthday import Birthday
 
 
 @pytest.mark.parametrize("value", [

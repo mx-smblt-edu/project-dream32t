@@ -4,7 +4,7 @@ Unit tests for Address class.
 
 import pytest
 
-from src.model.address import Address
+from src.domain.contact.address import Address
 
 
 @pytest.mark.parametrize("one, two", [

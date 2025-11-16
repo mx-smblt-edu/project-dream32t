@@ -4,8 +4,8 @@ Unit tests for Name class.
 
 import pytest
 
+from src.domain.contact.name import Name
 from src.error.invalid_name_error import InvalidNameError
-from src.model.name import Name
 
 
 @pytest.mark.parametrize("value", [

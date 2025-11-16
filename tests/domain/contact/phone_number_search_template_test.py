@@ -1,9 +1,11 @@
 """
 Unit tests for the `PhoneNumberSearchTemplate` class
 """
+
 import pytest
+
+from src.domain.contact.phone_number_search_template import PhoneNumberSearchTemplate
 from src.error.invalid_phone_number_search_template_error import InvalidPhoneNumberSearchTemplateError
-from src.model.phone_number_search_template import PhoneNumberSearchTemplate
 
 
 def test_phone_number_search_template_valid():

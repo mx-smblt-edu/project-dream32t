@@ -4,8 +4,8 @@ Unit tests for Tag class.
 
 import pytest
 
+from src.domain.note.tag import Tag
 from src.error.invalid_tag_error import InvalidTagError
-from src.model.tag import Tag
 
 
 @pytest.mark.parametrize("value", [

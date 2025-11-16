@@ -4,10 +4,11 @@ Unit tests for Email creation validity.
 This module contains tests for creating `Email` instances with valid and
 invalid values.
 """
+
 import pytest
 
+from src.domain.contact.email import Email
 from src.error.invalid_email_error import InvalidEmailError
-from src.model.email import Email
 
 
 @pytest.mark.parametrize("value", [

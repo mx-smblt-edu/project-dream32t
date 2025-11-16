@@ -2,12 +2,13 @@
 Unit tests for validating the behavior of adding and removing emails
 in the `Emails` collection.
 """
+
 import pytest
 
+from src.domain.contact.email import Email
+from src.domain.contact.emails import Emails
 from src.error.already_phone_number_error import AlreadyPhoneNumberError
 from src.error.unknown_phone_number_error import UnknownPhoneNumberError
-from src.model.email import Email
-from src.model.emails import Emails
 
 
 def test_add_non_existing_email() -> None:

@@ -4,8 +4,8 @@ Unit tests for Topic class.
 
 import pytest
 
+from src.domain.note.topic import Topic
 from src.error.invalid_topic_error import InvalidTopicError
-from src.model.topic import Topic
 
 
 @pytest.mark.parametrize("value", [

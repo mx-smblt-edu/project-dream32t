@@ -1,6 +1,7 @@
 """
 Provides the Phone class.
 """
+
 import re
 
 from src.error.invalid_email_error import InvalidEmailError

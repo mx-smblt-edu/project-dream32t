@@ -1,12 +1,13 @@
 """
 Unit tests for verifying the behavior of the ContactBook class methods.
 """
-from src.model.contact import Contact
-from src.model.contact_book import ContactBook
-from src.model.name import Name
-from src.model.name_search_template import NameSearchTemplate
-from src.model.phone import Phone
-from src.model.phone_number_search_template import PhoneNumberSearchTemplate
+
+from src.domain.contact.contact import Contact
+from src.domain.contact.contact_book import ContactBook
+from src.domain.contact.name import Name
+from src.domain.contact.name_search_template import NameSearchTemplate
+from src.domain.contact.phone import Phone
+from src.domain.contact.phone_number_search_template import PhoneNumberSearchTemplate
 
 
 def test_add_contact_adds_new_contact():

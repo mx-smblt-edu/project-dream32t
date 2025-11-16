@@ -1,8 +1,8 @@
-"""Provides the Topic class."""
+"""Provides the Note class."""
 
-from src.model.content import Content
-from src.model.tags import Tags
-from src.model.topic import Topic
+from src.domain.note.content import Content
+from src.domain.note.tags import Tags
+from src.domain.note.topic import Topic
 
 
 class Note:

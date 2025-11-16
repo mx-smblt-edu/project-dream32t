@@ -2,13 +2,14 @@
 Unit tests for validating the behavior of adding and removing phone numbers
 in the `Phones` collection.
 """
+
 import pytest
 
+from src.domain.contact.phone import Phone
+from src.domain.contact.phone_number_search_template import PhoneNumberSearchTemplate
+from src.domain.contact.phones import Phones
 from src.error.already_phone_number_error import AlreadyPhoneNumberError
 from src.error.unknown_phone_number_error import UnknownPhoneNumberError
-from src.model.phone import Phone
-from src.model.phone_number_search_template import PhoneNumberSearchTemplate
-from src.model.phones import Phones
 
 
 def test_add_non_existing_phone() -> None:

@@ -3,10 +3,10 @@ Unit tests for validating the behavior of adding and removing phone numbers
 in the `Phones` collection.
 """
 
-from src.model.content import Content
-from src.model.note import Note
-from src.model.notes import Notes
-from src.model.topic import Topic
+from src.domain.note.content import Content
+from src.domain.note.note import Note
+from src.domain.note.notes import Notes
+from src.domain.note.topic import Topic
 
 
 def test_add_non_existing_note() -> None:

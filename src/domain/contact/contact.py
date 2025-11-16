@@ -1,11 +1,12 @@
 """
 Provides the Contact class.
 """
-from src.model.emails import Emails
-from src.model.name import Name
-from src.model.phone import Phone
-from src.model.phone_number_search_template import PhoneNumberSearchTemplate
-from src.model.phones import Phones
+
+from src.domain.contact.emails import Emails
+from src.domain.contact.name import Name
+from src.domain.contact.phone import Phone
+from src.domain.contact.phone_number_search_template import PhoneNumberSearchTemplate
+from src.domain.contact.phones import Phones
 
 
 class Contact:

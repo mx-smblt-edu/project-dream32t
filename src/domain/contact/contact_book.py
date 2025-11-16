@@ -1,12 +1,13 @@
 """
 Provides an AddressBook class for managing and storing contact information.
 """
+
 from collections import UserDict
 
-from src.model.contact import Contact
-from src.model.name import Name
-from src.model.name_search_template import NameSearchTemplate
-from src.model.phone_number_search_template import PhoneNumberSearchTemplate
+from src.domain.contact.contact import Contact
+from src.domain.contact.name import Name
+from src.domain.contact.name_search_template import NameSearchTemplate
+from src.domain.contact.phone_number_search_template import PhoneNumberSearchTemplate
 
 
 class ContactBook(UserDict[Name, Contact]):

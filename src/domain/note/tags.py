@@ -7,10 +7,10 @@ class.
 """
 from collections import UserList
 
+from src.domain.note.tag import Tag
+from src.domain.note.tag_search_template import TagSearchTemplate
 from src.error.already_tag_error import AlreadyTagError
 from src.error.unknown_tag_error import UnknownTagError
-from src.model.tag import Tag
-from src.model.tag_search_template import TagSearchTemplate
 
 
 class Tags(UserList[Tag]):

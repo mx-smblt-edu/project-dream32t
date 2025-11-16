@@ -5,11 +5,12 @@ This module provides the `Phones` class, which is a custom implementation
 inheriting from the `UserList` collection that holds instances of the `Phone`
 class.
 """
+
 from collections import UserList
 
+from src.domain.contact.email import Email
 from src.error.already_phone_number_error import AlreadyPhoneNumberError
 from src.error.unknown_phone_number_error import UnknownPhoneNumberError
-from src.model.email import Email
 
 
 class Emails(UserList[Email]):

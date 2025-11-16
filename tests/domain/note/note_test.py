@@ -4,11 +4,11 @@ Unit tests for Tag class.
 
 import pytest
 
-from src.model.content import Content
-from src.model.note import Note
-from src.model.tag import Tag
-from src.model.tags import Tags
-from src.model.topic import Topic
+from src.domain.note.content import Content
+from src.domain.note.note import Note
+from src.domain.note.tag import Tag
+from src.domain.note.tags import Tags
+from src.domain.note.topic import Topic
 
 
 def test_checking_for_equality_of_two_identical_values() -> None:
