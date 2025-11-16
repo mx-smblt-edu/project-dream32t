@@ -13,7 +13,7 @@ from src.domain.contact.phone_number_search_template import PhoneNumberSearchTem
 class ContactBook(UserDict[Name, Contact]):
     """A class for storing and managing contacts."""
 
-    def add_contact(self, contact: Contact) -> None:
+    def add(self, contact: Contact) -> None:
         """
         Add a contact to the data storage.
 
@@ -73,7 +73,7 @@ class ContactBook(UserDict[Name, Contact]):
         """
         contacts = [
             contact for contact in self.data.values()
-            if contact.contains(template)
+            if contact.phones.contains(template)
         ]
         if len(contacts) == 0:
             return None
