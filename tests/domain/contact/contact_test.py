@@ -12,6 +12,8 @@ def test_contact_initialization():
     """
     name = Name("John")
     contact = Contact(name)
+
     assert contact.name == name
-    assert len(contact._Contact__phones) == 0
-    assert len(contact._Contact__emails) == 0
+    assert len(contact.phones) == 0
+    assert len(contact.emails) == 0
+    assert contact.birthday is None
